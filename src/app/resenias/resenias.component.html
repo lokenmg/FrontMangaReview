@@ -1,0 +1,40 @@
+<app-nav></app-nav>
+
+<div class="container mt-4" *ngIf="manga">
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="manga.portada" [alt]="manga.nombre" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <h1>{{ manga.nombre }}</h1>
+      <p><strong>Año de inicio:</strong> {{ manga.anioSalida }}</p>
+      <p><strong>Tomo:</strong> {{ manga.tomo }}</p>
+      <p><strong>Estado:</strong> {{ manga.estado }}</p>
+      <h3>Sinopsis</h3>
+      <p>{{ manga.sinopsis }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h2>Añadir reseña</h2>
+  <app-resenia-form [mangaId]="mangaId" [userId]="currentUser.idUsuario ? +currentUser.idUsuario : 0" (reseniaAgregada)="onReseniaAgregada()"></app-resenia-form>
+</div>
+
+<div class="container mt-4" *ngIf="resenias.length > 0">
+  <h2>Reseñas</h2>
+  <div class="row">
+    <div class="col-12">
+      <div *ngFor="let resenia of resenias" class="card mb-4">
+        <div class="card-body">
+          <img [src]="resenia.usuarioImg" alt="Usuario" class="img-fluid rounded-circle" style="height: 50px; width: 50px;">
+          <h5 class="card-title">{{ resenia.usuarioEmail }}</h5>
+          <p class="card-text">{{ resenia.resenia }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4" *ngIf="resenias.length === 0">
+  <p>No hay reseñas disponibles para este manga.</p>
+</div>

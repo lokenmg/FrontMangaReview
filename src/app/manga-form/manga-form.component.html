@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<div class="container mt-5">
+  <h2>Registrar Manga</h2>
+  <form (ngSubmit)="onSubmit()" #mangaForm="ngForm">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="manga.nombre">
+    </div>
+    <div class="mb-3">
+      <label for="portada" class="form-label">Portada</label>
+      <input type="text" class="form-control" id="portada" name="portada" required [(ngModel)]="manga.portada">
+    </div>
+    <div class="mb-3">
+      <label for="tomo" class="form-label">Tomo</label>
+      <input type="text" class="form-control" id="tomo" name="tomo" required [(ngModel)]="manga.tomo">
+    </div>
+    <div class="mb-3">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="estado" name="estado" required [(ngModel)]="manga.estado">
+    </div>
+    <div class="mb-3">
+      <label for="anioSalida" class="form-label">Año de Salida</label>
+      <input type="text" class="form-control" id="anioSalida" name="anioSalida" required [(ngModel)]="manga.anioSalida">
+    </div>
+    <div class="mb-3">
+      <label for="sinopsis" class="form-label">Sinopsis</label>
+      <textarea class="form-control" id="sinopsis" name="sinopsis" rows="3" required [(ngModel)]="manga.sinopsis"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+</div>

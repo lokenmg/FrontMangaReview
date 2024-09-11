@@ -1,0 +1,8 @@
+<!-- resenia-form.component.html -->
+<form [formGroup]="reseniaForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="Resenia">Añadir reseña</label>
+    <textarea id="Resenia" formControlName="Resenia" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2">Agregar</button>
+</form>

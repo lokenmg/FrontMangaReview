@@ -1,0 +1,36 @@
+<!-- nav.component.html -->
+<header class="p-3 mb-3 border-bottom" style="background-color: dimgray;">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <img src="https://th.bing.com/th/id/R.7d2598a09751ab701993edb2feab417a?rik=e7eHCyyFNmC1BA&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9iz%2f6ML%2f9iz6MLpAT.png&ehk=EuC34Q4HR%2bTOAh8E57TcTA8yMPi%2foj%2fDKb636agv2tA%3d&risl=&pid=ImgRaw&r=0g" alt="mdo" width="32" height="32" class="rounded-circle">
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-prymary" style="color: white;">Inicio</a></li>
+      </ul>
+
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" (input)="onSearch($event)">
+      </form>
+
+      <div class="dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src={{currentUser.img}} alt="mdo" width="32" height="32" class="rounded-circle">
+        </a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="/manga-form">Agregar Manga</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/login">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+    <div *ngIf="searchResults.length > 0" class="search-results">
+      <ul>
+        <li *ngFor="let result of searchResults">
+          <a [routerLink]="['/manga', result.idManga]">{{ result.nombre }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

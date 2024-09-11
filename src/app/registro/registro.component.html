@@ -1,0 +1,41 @@
+<!-- registro.component.html -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Registro de Usuario</h3>
+          <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Introduce tu correo electrónico">
+              <div *ngIf="registroForm?.get('email')?.invalid && registroForm?.get('email')?.touched" class="text-danger">
+                <small *ngIf="registroForm?.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+                <small *ngIf="registroForm?.get('email')?.errors?.['email']">Correo no válido.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contrasenia">Contraseña</label>
+              <input type="password" class="form-control" id="contrasenia" formControlName="contrasenia" placeholder="Introduce tu contraseña">
+              <div *ngIf="registroForm?.get('contrasenia')?.invalid && registroForm?.get('contrasenia')?.touched" class="text-danger">
+                <small *ngIf="registroForm?.get('contrasenia')?.errors?.['required']">La contraseña es obligatoria.</small>
+                <small *ngIf="registroForm?.get('contrasenia')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="img">Imagen (URL)</label>
+              <input type="text" class="form-control" id="img" formControlName="img" placeholder="Introduce la URL de la imagen">
+              <div *ngIf="registroForm?.get('img')?.invalid && registroForm?.get('img')?.touched" class="text-danger">
+                <small>URL de la imagen es requerida.</small>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-4" [disabled]="registroForm?.invalid">Registrar</button>
+          </form>
+          <div class="text-center mt-3">
+            <a routerLink="/login">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

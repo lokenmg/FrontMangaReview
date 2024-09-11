@@ -1,0 +1,20 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12">
+      <h2>Últimos Tomos</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-md-4 col-lg-2" *ngFor="let volume of volumes">
+      <div class="card mb-4">
+        <img [src]="volume.portada" class="card-img-top" [alt]="volume.nombre">
+        <div class="card-body text-center">
+          <h6 class="card-title">{{ volume.nombre }}</h6>
+          <button class="btn btn-secondary btn-sm" (click)="viewDetails(volume.idManga)">Agregar reseña</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
